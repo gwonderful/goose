@@ -383,7 +383,7 @@ win-app-deps:
 win-copy-win profile:
   copy target{{s}}{{profile}}{{s}}*.exe ui{{s}}desktop{{s}}src{{s}}bin
   copy target{{s}}{{profile}}{{s}}*.dll ui{{s}}desktop{{s}}src{{s}}bin
-  if exist ui{{s}}desktop{{s}}src{{s}}bin{{s}}goosed.exe del /f /q ui{{s}}desktop{{s}}src{{s}}bin{{s}}goosed.exe
+  if (Test-Path -LiteralPath "ui{{s}}desktop{{s}}src{{s}}bin{{s}}goosed.exe") { Remove-Item -LiteralPath "ui{{s}}desktop{{s}}src{{s}}bin{{s}}goosed.exe" -Force }
 
 ### "Other" copy {release|debug} files to ui/desktop/src/bin
 ### s = os dependent file separator
